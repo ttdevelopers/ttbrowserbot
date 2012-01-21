@@ -14,10 +14,10 @@ if (typeof(topicbot) == "undefined") {
 		suggestedTopic: null,
 		started: false,
 		songsPlayed: {},
-		maxSongs: 3,
+		maxSongs: 1,
 		language: 'en',
 		freeBonus: null,
-		defaultTheme: 'Free Play',
+		defaultTheme: 'Anything',
 		botFunctions: true,
 		botHello: true,
 		botGreeting: true,
@@ -586,7 +586,7 @@ topicbot.bootCurrentDj = function() {
 
 var lang = {
 	en: {
-		botHello: "OHAI! I'm topicbot.  I'll help us keep track of this room's theme.",
+		botHello: "Hey, I'm the InsideTurntable Bot!",
 		botLanguage: "I am speakng English",
 		botThanks: "You're welcome",
 		botVersion: "I am now version",
