@@ -1,8 +1,8 @@
 // This allows us to re-DOM inject topicbot without blasting its state..
 if (typeof(topicbot) == "undefined") {
 	topicbot = {
-		name: "topicbot",
-		owner:"@potatono",
+		name: "Jake.Smith",
+		owner:"Jake.Smith",
 		reloadUrl: "http://www2.justinday.com/topicbot/topicbot.js",
 		turntable: null,
 		room: null,
