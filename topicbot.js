@@ -10,7 +10,7 @@ if (typeof(topicbot) == "undefined") {
 		topViewController: null,
 		sendMessageName: 'fmsbQ',
 		firstEvent: false,
-		topic: Hot 100,
+		topic: null,
 		suggestedTopic: null,
 		started: false,
 		songsPlayed: {},
