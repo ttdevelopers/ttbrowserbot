@@ -10,14 +10,14 @@ if (typeof(topicbot) == "undefined") {
 		topViewController: null,
 		sendMessageName: 'fmsbQ',
 		firstEvent: false,
-		topic: null,
+		topic: Hot 100,
 		suggestedTopic: null,
 		started: false,
 		songsPlayed: {},
-		maxSongs: 1,
+		maxSongs: 3,
 		language: 'en',
 		freeBonus: null,
-		defaultTheme: 'Anything',
+		defaultTheme: 'Hot 100',
 		botFunctions: true,
 		botHello: true,
 		botGreeting: true,
@@ -25,7 +25,7 @@ if (typeof(topicbot) == "undefined") {
 		botReminder: false,
 		autoplayStatus: false,
 		autoqueueMax: 0,
-		autoqueueRunning: null,
+		autoqueueRunning: true,
 		autoqueueStatus: null,
 		similarRunning: false
 	};
@@ -586,7 +586,7 @@ topicbot.bootCurrentDj = function() {
 
 var lang = {
 	en: {
-		botHello: "Hey, I'm the InsideTurntable Bot!",
+		botHello: "Hey, I'm the Top 40 Bot!",
 		botLanguage: "I am speakng English",
 		botThanks: "You're welcome",
 		botVersion: "I am now version",
