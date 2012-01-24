@@ -1,8 +1,8 @@
 // This allows us to re-DOM inject topicbot without blasting its state..
 if (typeof(topicbot) == "undefined") {
 	topicbot = {
-		name: "Jake.Smith",
-		owner:"Jake.Smith",
+		name: "Fella",
+		owner:"Fella",
 		reloadUrl: "http://www2.justinday.com/topicbot/topicbot.js",
 		turntable: null,
 		room: null,
@@ -586,7 +586,7 @@ topicbot.bootCurrentDj = function() {
 
 var lang = {
 	en: {
-		botHello: "Hey, I'm the Top 40 Bot!",
+		botHello: "Hey, I'm the Fella!",
 		botLanguage: "I am speakng English",
 		botThanks: "You're welcome",
 		botVersion: "I am now version",
