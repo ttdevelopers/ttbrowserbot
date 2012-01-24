@@ -1,4 +1,5 @@
-Here's the bookmarklet:
+A TURNTABLE.FM BOT THAT RUNS IN YOUR BROWSER!
 
-````javascript:$.getScript('https://raw.github.com/jakewilliamsmith/top40/master/topicbot.js');````
 
+--bookmarklet!
+javascript:$.getScript('https://raw.github.com/jakewilliamsmith/top40/master/topicbot.js');
