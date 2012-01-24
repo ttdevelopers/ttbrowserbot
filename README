@@ -1,6 +1,4 @@
-Top 40 Bookmarklet!
-
 Here's the bookmarklet:
 
-javascript:$.getScript('https://raw.github.com/jakewilliamsmith/top40/master/topicbot.js');
+````javascript:$.getScript('https://raw.github.com/jakewilliamsmith/top40/master/topicbot.js');````
 
