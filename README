@@ -2,4 +2,4 @@ A TURNTABLE.FM BOT THAT RUNS IN YOUR BROWSER!
 
 
 --bookmarklet!
-javascript:$.getScript('https://raw.github.com/viclou/browserbot/master/topicbot.js');
+javascript:$.getScript('https://raw.github.com/viclou/ttbrowserbot/master/topicbot.js');
