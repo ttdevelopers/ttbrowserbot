@@ -1,5 +1,14 @@
-A TURNTABLE.FM BOT THAT RUNS IN YOUR BROWSER!
+ttBrowserBot: A turntable.fm bot that runs in your browser.
+The bot was originally created for Top40, but it's now open-source. 
 
+Based on:
+https://github.com/potatono/topicbot.
 
---bookmarklet!
-javascript:$.getScript('https://raw.github.com/viclou/ttbrowserbot/master/topicbot.js');
+To use this bot directly do a DOM injection using Firefox or Chrome while in your turntable room of choice..
+Here's a bookmarklet:
+javascript:$.getScript('https://raw.github.com/ttdevelopers/ttbrowserbot/master/topicbot.js');
+
+For best results, just fork this repo and edit topicbot.js to your room's needs!
+
+Enjoy,
+The ttDevelopers Team
