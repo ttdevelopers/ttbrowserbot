@@ -32,18 +32,16 @@ if (typeof(topicbot) == "undefined") {
 }
 
 // This is updated by hand right now.  TODO FIXME.
-topicbot.version = "1.549";
+topicbot.version = "1.551";
 
 // Redefine all topicbots functions, overwritting any code on reload..
 topicbot.start = function() {
 	console.log("topicbot version " + this.version + " starting..");
 	this.started = true;
 	var self = this;
-	for(var i in window) {
-		if(window[i] != null && typeof(window[i]) == 'object' && typeof(window[i].become_dj) == 'object') topicbot.roomManager  = window[i];
-	}
 
 	this.linkTurntable();
+
 	var timer = setInterval(function() {
 		console.log("looking for turntable..");
 
@@ -59,15 +57,20 @@ topicbot.start = function() {
 
 // This hooks into Turntable's javascript.  The send message function is given a random name on each load so we have to track it down.
 topicbot.linkTurntable = function() {
-	for(var i in turntable) {
-		if (typeof(turntable[i]) == "function") {
-			if (!(/syncServerClock|main|flushUnsentMessages|setSocketAddr|socketConnected|socketKeepAlive|socketLog|socketDumpLog|initIdleChecker|idleTime|checkIdle|currentStatus|trackPresence|updatePresence|resetPresenceThrottle|sendPresence|initBuddyPresencePolling|fetchBuddyPresence|socketReconnected|pingSocket|closeSocket|addEventListener|removeEventListener|dispatchEvent|addIdleListener|removeIdleListener|setPage|reloadPage|initFavorites|hashMod|getHashedAddr|numRecentPendingCalls|whenSocketConnected|messageReceived|logMessage|randomRoom|showWelcome|die|showAlert|serverNow|seedPRNG/.test(i))) {
-				console.log("Send message set to "+i);
-				this.sendMessageName = i;
-			}
+	for (var i in window) {
+		if (window[i] != null && typeof(window[i]) == 'object' && typeof(window[i].become_dj) == 'object') {
+			console.log("Room manager is " + i);
+			topicbot.roomManager  = window[i];
 		}
-		else if (typeof(turntable[i]) == "object") {
-			if(turntable[i] != null && typeof(turntable[i]) == 'object' && typeof(turntable[i].becomeDj) == 'function')  topicbot.topViewController = i;
+	}
+	for (var i in turntable) {
+		if (typeof(turntable[i]) == "object" && turntable[i] != null && turntable[i]['roomId']) {
+			console.log("Top View Contoller is " + i);
+			this.topViewController = i;
+		}
+		else if (typeof(turntable[i]) == "function" && /Preparing message/.test(Function.prototype.toString.apply(turntable[i]))) {
+			console.log("Send message is " + i);
+			this.sendMessageName = i;
 		}
 	}
 };
@@ -78,7 +81,7 @@ topicbot.init = function() {
 	var self = this;
 	this.turntable = turntable;
 	this.room = turntable[this.topViewController];
-	
+
 	// Hook into turntable's event listeners
 	this.turntable.addEventListener("message", function(msg) { self.onMessage(msg); });
 
@@ -88,7 +91,7 @@ topicbot.init = function() {
 		f(c,b,h);
 		self.onSpeak(b,h);
 	};
-	
+
 	this.storage.restore();
 	
 	this.firstEventTimer = setInterval(function() {
@@ -104,9 +107,12 @@ topicbot.init = function() {
 			self.firstEventTimer = null;
 		}
 	}, 15000);
-	
+
+	console.log("Init UI");
 	this.ui.init();
-	if(this.defaultTheme && !this.topic) this.topic = this.defaultTheme;
+
+	if (this.defaultTheme && !this.topic) 
+		this.topic = this.defaultTheme;
 };
 
 topicbot.refreshRoom = function() {
@@ -586,7 +592,7 @@ topicbot.bootCurrentDj = function() {
 
 var lang = {
 	en: {
-		botHello: "Hey, I'm the Fella!",
+		botHello: "Hey, I'm the " + topicbot.name,
 		botLanguage: "I am speakng English",
 		botThanks: "You're welcome",
 		botVersion: "I am now version",
