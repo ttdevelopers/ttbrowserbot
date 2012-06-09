@@ -32,7 +32,7 @@ if (typeof(topicbot) == "undefined") {
 }
 
 // This is updated by hand right now.  TODO FIXME.
-topicbot.version = "1.551";
+topicbot.version = "1.552";
 
 // Redefine all topicbots functions, overwritting any code on reload..
 topicbot.start = function() {
@@ -67,6 +67,13 @@ topicbot.linkTurntable = function() {
 		if (typeof(turntable[i]) == "object" && turntable[i] != null && turntable[i]['roomId']) {
 			console.log("Top View Contoller is " + i);
 			this.topViewController = i;
+
+			for (var j in turntable[i]) {
+				if (typeof(turntable[i][j]) == "object" && turntable[i][j] && turntable[i][j]['become_dj'] && turntable[i][j+'Callback']) {
+					console.log("Room callback is " + j + "Callback");
+					this.roomCallback = turntable[i][j+'Callback'];
+				}
+			}
 		}
 		else if (typeof(turntable[i]) == "function" && /Preparing message/.test(Function.prototype.toString.apply(turntable[i]))) {
 			console.log("Send message is " + i);
@@ -707,7 +714,7 @@ topicbot.autoplay = {
 	},
 	start: function() {
 		console.log('start djing');
-		topicbot.room.becomeDj();
+		topicbot.roomCallback('become_dj');
 	},
 	stop: function() {
 		console.log('quit djing');
