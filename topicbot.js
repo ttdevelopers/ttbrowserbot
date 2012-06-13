@@ -3,7 +3,8 @@ if (typeof(topicbot) == "undefined") {
 	topicbot = {
 		name: "Fella",
 		owner:"Fella",
-		reloadUrl: "http://www2.justinday.com/topicbot/topicbot.js",
+		//SOURCE: reloadUrl: "http://www2.justinday.com/topicbot/topicbot.js",
+		reloadUrl: "https://raw.github.com/ttdevelopers/ttbrowserbot/master/topicbot.js'",
 		turntable: null,
 		room: null,
 		roomManager: null,
